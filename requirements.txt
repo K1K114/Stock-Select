@@ -1,0 +1,10 @@
+ALL PIP-INSTALLABLE LIBRARIES THAT ARE REQUIRED FOR PROJECT
+
+1: yahoo_fin
+2: alive_progress
+3: plotly
+4: pandas
+5: pyfiglet
+6: tabulate
+
+
