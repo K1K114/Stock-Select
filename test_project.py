@@ -1,4 +1,4 @@
-from project import get_alldata, get_industry_data, match_industry, short_term_invest, long_term_invest, rank_stocks, StockData, IndustryData, StockRecommendations
+from stock_analysis import get_alldata, get_industry_data, match_industry, short_term_invest, long_term_invest, rank_stocks, StockData, IndustryData, StockRecommendations
 
 
 def test_get_alldata():

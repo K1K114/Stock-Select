@@ -1,3 +1,44 @@
-# STOCK SELECT
-#### Video Demo:  <(https://youtu.be/h_B8EjkTC8I?si=VIYypdtXJ1g2pUaI)>
-#### Description: (1) I have built a Python project called Stock Select that allows users to search for stocks or market indexes by their respective tickers and access a wide range of key financial data, including live prices, closing prices, opening prices, and other crucial metrics. (2) Additionally, users can view historical data from the past year, if stock/index is applicable, in a table format or an interactive stock graph. Furthermore, my program allows users to see data on the top ten stocks in any of the seven major industries they choose from: Technology, Finance, Healthcare, Energy, Consumer Goods, Industrial, and Real Estate. (3) Lastly Stock Select goes a step further and can even act as a smart investment assistant, analyzing various real-time financial metrics and user preferences to recommend stocks that align with individual investment goals and market interests. All extra files I made during this project are titled play_n.py, where n is an integer, and the purpose of each of these files is what the name suggests, just files to play with or test ideas that I had, or if something wasn't working in my main program, I could single it out in one of these files to debug it properly. I also often stored correct code in these files and copied and pasted it into my main program. Now I had lots of struggles with finding the right design for my program. At first when I made the functionality of my program, all of it was in the classes I had defined: StockData, IndustryData, StockRecommendations. However, I later realized that it didn't make as much sense for the root functionality of my code to be defined in classes when all I needed from classes was the ability to mold my data into how I wanted it, not retrieve the data. So after writing hundreds of lines of functionality for my program within each class, I defined multiple functions and put my program's functionality within those, increasing the readability of my code but also making for a more logical approach. Another design challenge I faced was the smart investment assistant functionality. After writing and testing my code for my program's stock recommendation system, I quickly found the limitations of the key library I used, yahoo_fin, which scrapes and retrieves financial data from Yahoo Finance. After running the recommendation system multiple times in a row, and due to the number of times I was calling the library within that functionality, I discovered that the library could only send a limited number of requests to Yahoo Finance within a given period due to Yahoo Finance's "abuse protection" system which temporarily banned any data scraping. So to implement the stock recommendation system I wanted with no issues, I redesigned my program to optimize how many times it called the library. Instead of making separate requests for each piece of data for every stock, I modified the program to call the library only one to three times per stock. And so now my program  processes all necessary data in a single loop, scores the stock, and then moves on to the next one, repeating this process for all stocks. This design makes my program more efficient in collecting data for over 100 stocks, allowing it to run much smoother and faster without issues when executed consecutively.
+# Stock Analysis Pipeline
+A comprehensive command-line stock analysis tool that provides real-time market data, historical analysis, forecasting, and portfolio risk assessment.
+
+---
+
+## Features
+
+### 📊 Stock Lookup
+- Real-time stock data including current price, volume, market cap  
+- 52-week high/low ranges and PE ratios  
+- Historical data visualization with interactive charts  
+- 30-day ARIMA price forecasting  
+
+### 🏢 Sector Overview
+Pre-configured sector analysis for major industries:
+- **Technology**: AAPL, MSFT, GOOGL, NVDA, META  
+- **Finance**: JPM, BAC, GS, V, MA  
+- **Healthcare**: LLY, JNJ, UNH, ABBV, PFE  
+- **Energy**: XOM, CVX, COP, SLB, EOG  
+
+Includes side-by-side comparison of key metrics.
+
+### 💼 Portfolio Analysis
+- Multi-stock portfolio risk analysis  
+- Expected annual returns and volatility calculations  
+- Sharpe ratio computation with risk-free rate assumptions  
+- Portfolio composition breakdown  
+- Modern Portfolio Theory implementation  
+
+### Requirements
+- Python 3.7+
+- Internet connection for real-time data
+- Terminal/command prompt with ASCII support for best display
+
+---
+
+## Installation
+Clone or download the repository:
+```bash
+git clone <repository-url>
+cd stock-analysis-pipeline
+pip install -r requirements.txt
+python stock_analysis.py
+
